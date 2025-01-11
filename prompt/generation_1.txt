@@ -1,0 +1,35 @@
+# prompt.txt for generation stage.
+You will receive a document and a set of top-level topics from a topic hierarchy. Your task is to identify generalizable topics within the document that can act as top-level topics in the hierarchy. If any relevant topics are missing from the provided set, please add them. Otherwise, output the existing top-level topics as identified in the document.
+
+## 顶级主题（Top-level topics）:
+{Topics}，现有顶级主题来自seed.txt文档中，例如“[1]养老服务”等；
+
+## Example:
+Example 1：Adding“[1] 医疗影像数据的处理”，Adding new top-level topics。
+Document：
+医疗PACS影像系统的数据存储性能优化 医疗影像归档与通信系统(PACS)影像数据是典型的海量小文件场景，其面临的挑战主要为高效的海量元数据管理和有效解决碎片化导致的性能下降.通过分析医疗PACS影像存储系统路径的全IO(input/output)各个关键环节，从PACS软件调阅算法、存储协议网关高并发设计、小文件聚合以及数据存储服务并发模型4个维度进行优化设计，实现对PACS调阅性能的大幅提升.实际测试表明，优化设计后PACS影像系统的调阅性能可达到每秒300幅图像，为传统存储调阅速度的3倍以上，有效解决了PACS影像数据调阅卡顿的问题。
+Your response：
+[1] 医疗影像数据的处理：医疗影像数据的处理是医疗数据重点关注方向之一。
+
+Example 2：Duplicate“[1] 养老服务”，returning the existing topic。
+Document：
+基于CHARLS微观数据的实证研究 本文使用中国健康与养老追踪调查微观数据，实证检验有偏健康感知对我国中老年人自我医疗使用的影响。通过比较体检问卷中的高血压客观信息和中老年人对自身高血压状况的主观回答，构建个体层面的有偏健康感知变量。结果表明，有偏健康感知会显著降低中老年人自我医疗使用的可能性。另外，本文发现有偏健康感知也会显著降低中老年人门诊或住院形式的正规医疗的可能性，表明中老年人的自我医疗和正规医疗并非替代关系。为了应对我国人口老龄化带来的健康挑战，本文建议加强针对中老年人的专项健康知识普及行动、构筑全民参与的健康体检项目。
+Your response：
+[1] 养老服务：利用健康与养老数据进行养老服务的调查。
+
+## Instruction:
+Step 1: Determine topics mentioned in the document. 
+- The topic labels must be as GENERALIZABLE as possible. They must not be document-specific.
+- The topics must reflect a SINGLE topic instead of a combination of topics.
+- The new topics must have a level number, a short general label, and a topic description. 
+- The topics must be broad enough to accommodate future subtopics. 
+Step 2: Perform ONE of the following operations: 
+1. If there are already duplicates or relevant topics in the hierarchy, output those topics and stop here. 
+2. If the document contains no topic, return "None". 
+3. Otherwise, add your topic as a top-level topic. Stop here and output the added topic(s). DO NOT add any additional levels.
+
+##Document：
+{Document}，即输入的数据文档med_data_chinese.jsonl的"text"部分。
+
+Please ONLY return the relevant or modified topics at the top level in the hierarchy.
+Your response:

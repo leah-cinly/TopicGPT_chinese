@@ -1,0 +1,34 @@
+You will receive a document and a topic hierarchy. Assign the document to the most relevant topics the hierarchy. Then, output the topic labels, assignment reasoning and supporting quotes from the document. DO NOT make up new topics or quotes.  
+
+##Topic Hierarchy
+{tree}
+
+##Examples
+Example 1: Assign "[1] 医疗影像数据的处理" to the document
+Document: 
+医疗PACS影像系统的数据存储性能优化 医疗影像归档与通信系统(PACS)影像数据是典型的海量小文件场景，其面临的挑战主要为高效的海量元数据管理和有效解决碎片化导致的性能下降.通过分析医疗PACS影像存储系统路径的全IO(input/output)各个关键环节，从PACS软件调阅算法、存储协议网关高并发设计、小文件聚合以及数据存储服务并发模型4个维度进行优化设计，实现对PACS调阅性能的大幅提升.实际测试表明，优化设计后PACS影像系统的调阅性能可达到每秒300幅图像，为传统存储调阅速度的3倍以上，有效解决了PACS影像数据调阅卡顿的问题。
+
+Your response:
+[1] 医疗影像数据的处理：医疗影像数据的处理是医疗数据重点关注方向之一。
+
+Example 2: Assigned "[2] 医疗数据共享的利益相关者管理" and  "[2] 区块链在医疗健康领域的应用" to the document
+Document: 
+通过数值模拟探讨不同因素对区块链架构下医疗数据共享各参与方的决策影响。结果表明，初始策略选择对博弈策略稳定性有显著影响。通过提高系统管理方的监管收益、降低数据提供方的感知损失以及提高数据需求方举报不合规行为的补偿可以加快系统的演化进程，增强参与方之间的信任，进而促进信任关系的形成。
+
+Your response: 
+[2] 医疗数据共享的利益相关者管理：研究医疗数据共享中的多方利益相关者关系及管理机制。
+[2] 区块链在医疗健康领域的应用：利用区块链技术提高医疗健康信息平台的安全性和效率，促进医疗数据隐私保护。
+
+## Instructions
+1. Topic labels must be present in the provided topic hierarchy. You MUST NOT make up new topics. 
+2. The quote must be taken from the document. You MUST NOT make up quotes. 
+3. If the assigned topic is not on the top level, you must also output the path from the top-level topic to the assigned topic.
+
+##Document
+{Document}
+
+Double check that your assignment exists in the hierarchy!
+Your response should be in the following format:
+[Topic Level] Topic Label: Assignment reasoning (Supporting quote)
+
+Your response:

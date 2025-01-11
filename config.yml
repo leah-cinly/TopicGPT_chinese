@@ -1,0 +1,72 @@
+# verbose: whether to print out module details or not
+verbose: True 
+
+# --- Data ---
+data:
+    chinese: "data/input/med_data_chinese.jsonl"
+    english: "data/input/med_data_english.jsonl"
+    all_text: "data/input/all_text.jsonl"
+
+data_sample: 
+    chinese: "data/input/samples_chinese.jsonl"
+    english: "data/input/samples_english.jsonl"
+
+# --- Generation ---
+generation:
+  prompt: "prompt/generation_1.txt"
+  seed: "prompt/seed_1.md"      
+  output: "data/output/sample/generation_1.jsonl"
+  topic_output: "data/output/sample/generation_1.md"
+
+# --- Refinement ---
+refining_topics: True
+refinement:
+  prompt: "prompt/refinement.txt"
+  output: "data/output/sample/refinement.jsonl"
+  topic_output: "data/output/sample/refinement.md"
+  mapping_file: "data/output/sample/refinement_mapping.json"
+  remove: True  
+ 
+# --- Subtopic Generation ---
+generate_subtopics: True
+generation_2:
+  prompt: "prompt/generation_2.txt"
+  output: "data/output/sample/generation_2.jsonl"
+  topic_output: "data/output/sample/generation_2.md"
+
+# --- Assignment ---
+assignment:
+  prompt: "prompt/assignment.txt"
+  output: "data/output/sample/assignment.jsonl"
+
+# --- Correction ---
+correction:
+  prompt: "prompt/correction.txt"
+  output: "data/output/sample/assignment_corrected.jsonl"
+
+# -------when all_text is running--------
+generation_all:
+  prompt: "prompt/generation_1.txt"
+  seed: "prompt/seed_1.md"      
+  output: "data/output/all_text/generation_1.jsonl"
+  topic_output: "data/output/all_text/generation_1.md"
+
+refinement_all:
+  prompt: "prompt/refinement.txt"
+  output: "data/output/all_text/refinement.jsonl"
+  topic_output: "data/output/all_text/refinement.md"
+  mapping_file: "data/output/all_text/refinement_mapping.json"
+  remove: True      
+
+generation_2_all:
+  prompt: "prompt/generation_2.txt"
+  output: "data/output/all_text/generation_2.jsonl"
+  topic_output: "data/output/all_text/generation_2.md"
+
+assignment_all:
+  prompt: "prompt/assignment.txt"
+  output: "data/output/all_text/assignment.jsonl"
+
+correction_all:
+  prompt: "prompt/correction.txt"
+  output: "data/output/all_text/assignment_corrected.jsonl"

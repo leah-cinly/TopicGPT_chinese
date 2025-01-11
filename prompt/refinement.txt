@@ -1,0 +1,29 @@
+You will receive a list of topics that belong to the same level of a topic hierarchy. Your task is to merge topics that are paraphrases or near duplicates of one another. Return "None" if no modification is needed.
+
+##Examples
+Example 1: Merging topics ("[1] 医疗数据管理" and "[1] 医疗健康大数据管理" into "[1] 医疗健康数据的管理")
+Topic List:
+[1] 医疗健康大数据管理：涉及医疗健康大数据的聚合、共享及知识服务方法，以支持智慧医疗服务的创新。
+[1] 医疗数据管理：涉及病案首页编码同质化，以提高医疗数据的质量和可比性，确保医保基金分配的公平性。
+Your response:
+[1] 医疗健康数据的管理: 涉及医疗健康领域的数据聚合等，以期提高数据的质量。 ("[1] 医疗数据管理" and "[1] 医疗健康大数据管理")
+
+Example 2: Merging topics (“[1] 医疗数据安全与隐私保护”and “[1] 健康医疗大数据与隐私权” into “[1] 医疗健康数据的隐私与安全问题”)
+Topic List：
+[1] 医疗数据安全与隐私保护：涉及医疗数据的加密、访问控制及共享机制，确保数据的安全性和隐私性。
+[1] 健康医疗大数据与隐私权：探讨健康医疗大数据的应用如何影响个人隐私权，并提出相应的解决策略。
+[1] 医疗大数据隐私保护：医疗大数据隐私保护涉及确保医疗数据在存储和传输过程中的安全性，同时支持高效的数据访问和搜索功能。
+Your response：
+[1] 医疗健康数据的隐私与安全问题：涉及医疗健康数据的在存储和运输过程中的安全性问题以及个人隐私权的问题。
+
+##规则（Rules）
+- Each line represents a topic, with a level indicator and a topic label.
+- Perform the following operations as many times as needed:
+- Merge relevant topics into a single topic.
+- Do nothing and return "None" if no modification is needed.
+- When merging, the output format should contain a level indicator, the updated label and description, followed by the original topics.
+
+##Topic List
+{Topics}
+Output the modification or "None" where appropriate. Do not output anything else.
+Your response:

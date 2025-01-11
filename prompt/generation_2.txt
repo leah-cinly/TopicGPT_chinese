@@ -1,0 +1,43 @@
+You will receive a branch from a topic hierarchy along with some documents assigned to the top-level topic of that branch. Your task is to identify generalizable second-level topics that can act as subtopics to the top-level topic in the provided branch. Add your topic(s) if they are missing from the provided branch. Otherwise, return the existing relevant or duplicate topics. 
+
+##Example
+ (Return "[2] 保险科技与算法模型" (new) and "[2] 保险科技与互联网医疗互助" (existing) as the subtopics of "[1] 医疗健康数据在保险科技上的应用" (provided).]
+Topic branch:
+[1] 医疗健康数据在保险科技上的应用
+    [2] 保险科技与互联网医疗互助
+    [2] 保险科技与算法模型
+
+Document 1: 
+突发公共卫生事件、普惠型保障与保险科技——基于城市月度医疗互助数据的实证分析 互联网医疗互助采用了一系列保险科技手段以实现普惠型保障，其科技与普惠特征可为传统保险业所借鉴。本文基于全国100个城市2019年1月至2020年5月的城市月度数据，对比传统商业保险与互联网医疗互助在突发公共卫生事件中的保障作用差异。
+
+Document 2: 
+研究发现：在保险科技的支持下，互联网医疗互助参与人数与互助金额随当地确诊人数增加而增长，而传统商业保险消费量无显著变化；互联网医疗互助对数字普惠金融覆盖更广的地区、在社会信任度更高的人群能够发挥更强的作用，且对受冲击更大的流动人口和女性群体的保障作用更明显。以上结论在更换变量口径与模型设定、剔除湖北子样本后依然稳健。
+
+Document 3: 
+本文结论说明了保险科技与普惠型保障的重要作用。出于行业秩序考虑，互联网医疗互助已全面关停，但医疗互助的线上流程、算法模型对于我国持牌保险机构具有一定的适用性，这对于补充普惠型保障供给具有参考价值。因此，本文建议在有效防范风险的前提下，加速推动传统保险业的科技转型，以完善我国的保障体系。
+
+Your response: 
+[1] 医疗健康数据在保险科技上的应用
+    [2] 保险科技与互联网医疗互助：保险科技显著影响互联网医疗互助人数。
+    [2] 保险科技与算法模型：算法模型等保险科技对补充惠普型保证的价值。
+
+##Instructions
+Step 1: Determine PRIMARY and GENERALIZABLE topics mentioned in the documents. 
+- The topics must be generalizable among the provided documents. 
+- Each topic must not be too specific so that it can accommodate future subtopics.
+- Each topic must reflect a SINGLE topic instead of a combination of topics.
+- Each top-level topic must have a level number and a short label. Second-level topics should also include the original documents associated with these topics (separated by commas) as well as a short description of the topic.
+- The number of topics proposed cannot exceed the number of documents provided.
+Step 2: Perform ONE of the following operations: 
+1. If the provided top-level topic is specific enough, DO NOT add any subtopics. Return the provided top-level topic.
+2. If your topic is duplicate or relevant to the provided topics, DO NOT add any subtopics. Return the existing relevant topic. 
+3. If your topic is relevant to and more specific than the provided top-level topic, add your topic as a second-level topic. DO NOT add to the first or third level of the hierarchy. 
+
+##Topic branch
+{Topic}
+
+##Documents
+{Document}
+ 
+DO NOT add first- or third-level topics.
+Your response:
